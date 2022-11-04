@@ -70,6 +70,12 @@ public class StringArrayUtils {
      * @return true if the order of the array is the same backwards and forwards
      */ // TODO
     public static boolean isPalindromic(String[] array) {
+        for (int i = 0; i < array.length / 2; i++) {
+            if (array[i] == array[array.length - 1 - i]) {
+                return true;
+            } else {
+            }
+        }
         return false;
     }
 
@@ -87,7 +93,14 @@ public class StringArrayUtils {
      * @return number of occurrences the specified `value` has occurred
      */ // TODO
     public static int getNumberOfOccurrences(String[] array, String value) {
-        return 0;
+        int count = 0;
+        for (int i = 0; i< array.length; i++) {
+            if (array[i] == value) {
+                count++;
+            } else {
+            }
+        }
+        return count;
     }
 
     /**
@@ -96,7 +109,16 @@ public class StringArrayUtils {
      * @return array with identical contents excluding values of `value`
      */ // TODO
     public static String[] removeValue(String[] array, String valueToRemove) {
-        return null;
+        String[] value = new String[array.length - 1];
+        int count = 0;
+        for(int i = 0; i < array.length; i++) {
+            if (array[i] != valueToRemove) {
+                value[count] = array[i];
+                count++;
+            } else if (array[i] == valueToRemove) {
+            }
+        }
+        return value;
     }
 
     /**
