@@ -1,6 +1,5 @@
 package com.zipcodewilmington;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -51,8 +50,8 @@ public class StringArrayUtils {
             } else {
             }
         }
-            return false;
-        }
+        return false;
+    }
 
     /**
      * @param array of String objects
@@ -105,7 +104,7 @@ public class StringArrayUtils {
      */ // TODO
     public static int getNumberOfOccurrences(String[] array, String value) {
         int count = 0;
-        for (int i = 0; i< array.length; i++) {
+        for (int i = 0; i < array.length; i++) {
             if (array[i] == value) {
                 count++;
             } else {
@@ -122,7 +121,7 @@ public class StringArrayUtils {
     public static String[] removeValue(String[] array, String valueToRemove) {
         String[] value = new String[array.length - 1];
         int count = 0;
-        for(int i = 0; i < array.length; i++) {
+        for (int i = 0; i < array.length; i++) {
             if (array[i] != valueToRemove) {
                 value[count] = array[i];
                 count++;
@@ -137,12 +136,15 @@ public class StringArrayUtils {
      * @return array of Strings with consecutive duplicates removes
      */ // TODO
     public static String[] removeConsecutiveDuplicates(String[] array) {
-        String[] value = new String[array.length - 1];
-        int count = 0;
-        for (int i = 0; i < array.length; i++) {
-            return value;
+        String finalOutput = "";
+        for (int i = 0; i < array.length - 1; i++) {
+            if (!array[i].equals(array[i + 1])) {
+                finalOutput += array[i] + " ";
+            }
         }
-        return null;
+        finalOutput += array[array.length - 1];
+        String[] array1 = finalOutput.split(" ");
+        return array1;
     }
 
     /**
@@ -150,18 +152,30 @@ public class StringArrayUtils {
      * @return array of Strings with each consecutive duplicate occurrence concatenated as a single string in an array of Strings
      */ // TODO
     public static String[] packConsecutiveDuplicates(String[] array) {
-        String [] na;
-        String addDuplicate = array[0];
-        for ( int i = 1; i < array.length; i++) {
-            if (array[i] == array[i - 1]) {
-                addDuplicate+= array[i];
+        String finalOutput = "";
+        for (int i = 1; i < array.length; i++) {
+            if (array[i].equals(array[i - 1])) {
+                finalOutput += array[i - 1];
             } else {
-                addDuplicate+= " " + array[i];
+                finalOutput += array[i - 1] + " ";
             }
         }
-        na = addDuplicate.split(" ");
-        return na;
+        finalOutput += array[array.length - 1];
+        String[] array1 = finalOutput.split(" ");
+        return array1;
     }
-
-
 }
+
+//    String[] na;
+//    String addDuplicate = array[0];
+//        for (int i = 1; i < array.length; i++) {
+//        if (array[i] == array[i - 1]) {
+//        addDuplicate += array[i];
+//        } else {
+//        addDuplicate += " " + array[i];
+//        }
+//        }
+//        na = addDuplicate.split(" ");
+//        return na;
+//        }
+//        }
