@@ -1,5 +1,8 @@
 package com.zipcodewilmington;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  * Created by leon on 1/29/18.
  */
@@ -84,7 +87,15 @@ public class StringArrayUtils {
      * @return true if each letter in the alphabet has been used in the array
      */ // TODO
     public static boolean isPangramic(String[] array) {
-        return false;
+        String words = Arrays.toString(array).toLowerCase();
+        String alphabet = "abcdefghijklmnopqrstuvwxyz";
+        for (int i = 0; i < alphabet.length(); i++) {
+            if (!words.contains(String.valueOf(alphabet.charAt(i)))) { // if the phrase does not the value of abc
+                return false;
+            } else {
+            }
+        }
+        return true;
     }
 
     /**
@@ -126,6 +137,11 @@ public class StringArrayUtils {
      * @return array of Strings with consecutive duplicates removes
      */ // TODO
     public static String[] removeConsecutiveDuplicates(String[] array) {
+        String[] value = new String[array.length - 1];
+        int count = 0;
+        for (int i = 0; i < array.length; i++) {
+            return value;
+        }
         return null;
     }
 
@@ -134,7 +150,17 @@ public class StringArrayUtils {
      * @return array of Strings with each consecutive duplicate occurrence concatenated as a single string in an array of Strings
      */ // TODO
     public static String[] packConsecutiveDuplicates(String[] array) {
-        return null;
+        String [] na;
+        String addDuplicate = array[0];
+        for ( int i = 1; i < array.length; i++) {
+            if (array[i] == array[i - 1]) {
+                addDuplicate+= array[i];
+            } else {
+                addDuplicate+= " " + array[i];
+            }
+        }
+        na = addDuplicate.split(" ");
+        return na;
     }
 
 
